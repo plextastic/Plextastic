@@ -19,14 +19,14 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 var clickEvent = 'click';
 var agent = navigator.userAgent.toLowerCase();
 if (agent.indexOf('iphone') != -1 || agent.indexOf('ipod') != -1)
-		clickEvent = 'tap';
+    clickEvent = 'tap';
 
 var jQT = new $.jQTouch({
     icon: 'jqtouch.png',
     addGlossToIcon: false,
     startupScreen: 'jqt_startup.png',
     statusBar: 'black',
-	icon: 'plex.png',
+    icon: 'plex.png',
     preloadImages: [
         'themes/jqt/img/back_button.png',
         'themes/jqt/img/back_button_clicked.png',
@@ -85,7 +85,7 @@ $(document).ready(function(e) {
 
             if (episodes > watched)
                 item += '<small class="counter_green">' + episodes + '</small>';
-			else
+            else
                 item += '<small class="counter">' + episodes + '</small>';
 
             $('<li class="arrow">'+item+'</li>').appendTo('#main_menu_list');
