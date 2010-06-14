@@ -92,6 +92,9 @@ $(document).ready(function(e) {
         });
     });
 
+	$("#main_menu").bind(clickEvent, function(event, info) {
+		$("#season_menu_list").empty();
+	});
 
     $('#season_menu').bind('pageAnimationEnd', function(event, info) {
         if (info.reverse) {
@@ -100,7 +103,6 @@ $(document).ready(function(e) {
         var title = $(this).data('referrer').text();
 
         $("#season_title").html(title);
-        $("#season_menu_list").empty();
 
         var argsSeasons = {"command": "queryvideodatabase(select c12, count(c13), count(c08) from episodeview where strtitle like \"" + scrub(title) + "\" group by c12;)"};
 
@@ -120,6 +122,10 @@ $(document).ready(function(e) {
         });
     });
 
+	$("#season_menu_list").bind(clickEvent, function(event, info) {
+		$("#episode_menu_list").empty();
+	});
+
     $('#episode_menu').bind('pageAnimationEnd', function(event, info) {
         if (info.direction != 'in') {
             return false;
@@ -128,7 +134,6 @@ $(document).ready(function(e) {
         var season = $(this).data('referrer').text().match(/[\d\.]+/g)[0];
 
         $('#episode_title').html('Season ' + season);
-        $('#episode_menu_list').empty();
 
         var argsEpisodes = {"command": "queryvideodatabase(select c13, c08, c00, strPath, strFileName from episodeview where strtitle like \"" + scrub(title) + "\" and c12=" + scrub(season) + " order by cast(c13 as int))"};
 
