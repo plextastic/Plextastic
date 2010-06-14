@@ -97,7 +97,7 @@ $(document).ready(function(e) {
 	});
 
     $('#season_menu').bind('pageAnimationEnd', function(event, info) {
-        if (info.reverse) {
+        if (info.direction == 'out' || info.reverse) {
             return false;
         }
         var title = $(this).data('referrer').text();
@@ -127,7 +127,7 @@ $(document).ready(function(e) {
 	});
 
     $('#episode_menu').bind('pageAnimationEnd', function(event, info) {
-        if (info.direction != 'in') {
+        if (info.reverse) {
             return false;
         }
         var title = $("#season_title").text();
