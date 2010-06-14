@@ -55,16 +55,6 @@ function scrub(query) {
 }
 
 /**
- * Humm.. map really must be somewhere in the framework.
- */
-function map(things, cb) {
-    var result = new Array(things.length);
-    for (var x=0; x < things.length; x++)
-        result[x] = cb(things[x]);
-    return result;
-}
-
-/**
  * As XBMC is retarded and doesn't send row delimiters
  * this method converts the hetrogenous list of fields
  * to method calls where rows are separated based on
@@ -72,7 +62,7 @@ function map(things, cb) {
  */
 function eachRow(fields, cb) {
     for (var x=0; x < fields.length; x+= cb.length) {
-        cb.apply(null, map(fields.slice(x, x + cb.length), function(x) {
+        cb.apply(null, fields.slice(x, x + cb.length).toArray().map(function(x) {
             return x.textContent;
         }));
     }
