@@ -14,9 +14,12 @@ ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 */
 
-var userAgent = navigator.userAgent.toLowerCase();
-var isiPhone = (userAgent.indexOf('iphone') != -1 || userAgent.indexOf('ipod') != -1) ? true : false;
-var clickEvent = isiPhone ? 'tap' : 'click';
+
+// Detect if 'tap' event is available.
+var clickEvent = 'click';
+var agent = navigator.userAgent.toLowerCase();
+if (agent.indexOf('iphone') != -1 || agent.indexOf('ipod') != -1)
+		clickEvent = 'tap';
 
 var jQT = new $.jQTouch({
     icon: 'jqtouch.png',
