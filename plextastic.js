@@ -109,7 +109,7 @@ $(document).ready(function(e) {
                 var item = '<a href="#episode_menu">Season ' + season + '</a>';
                 if (episodes > watched)
                     item += '<small class="counter_green">' + episodes + '</small>';
-				else
+                else
                     item += '<small class="counter">' + episodes + '</small>';
 
                 $('<li class="arrow">' + item + '</li>').appendTo('#season_menu_list');
@@ -118,9 +118,9 @@ $(document).ready(function(e) {
     });
 
     $('#episode_menu').bind('pageAnimationEnd', function(event, info) {
-	if (info.direction != 'in') {
-		return false;
-	}
+        if (info.direction != 'in') {
+            return false;
+        }
         var title = $("#season_title").text();
         var season = $(this).data('referrer').text().match(/[\d\.]+/g)[0];
 
