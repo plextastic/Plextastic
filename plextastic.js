@@ -38,19 +38,6 @@ var jQT = new $.jQTouch({
 });
 
 /**
- * Object introspection.
- */
-function listProperties(obj) {
-    var propList = "";
-    for(var propName in obj) {
-        if(typeof(obj[propName]) != "undefined") {
-            propList += (propName + ", ");
-        }
-    }
-    console.log(propList);
-}
-
-/**
  * Very simplistic database query scrubbing.
  */
 function scrub(query) {
